@@ -9,7 +9,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const Servicedetails = () => {
     const services = useLoaderData()
     const { reviews } = useContext(AuthServices)
-    console.log(reviews);
+    // console.log(reviews);
     const { author, des, img, name, ratings, sl } = services
     const results = reviews.filter(rvw => rvw.sl === sl)
     const rev = reviews.find(rvw => rvw.sl === sl)
