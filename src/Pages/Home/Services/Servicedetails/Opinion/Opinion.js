@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Opinion = ({ sl }) => {
-    let [data, setData] = useState({})
+    let [data, setData] = useState([])
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target
@@ -11,6 +11,7 @@ const Opinion = ({ sl }) => {
         const ratings = parseInt(form.ratings.value)
         const text = form.text.value
         form.reset()
+        window.location.reload()
         const reviews = {
             sl, name, ratings, img, text
         }
