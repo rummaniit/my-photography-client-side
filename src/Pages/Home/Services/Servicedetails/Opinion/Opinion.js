@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Opinion = ({ sl }) => {
+    let [data, setData] = useState({})
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const sl = parseInt(form.slnumber.value)
+        const img = form.imageurl.value
+        const ratings = parseInt(form.ratings.value)
+        const text = form.text.value
+        form.reset()
+        const reviews = {
+            sl, name, ratings, img, text
+        }
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(reviews)
+        })
+            .then(res => {
+                res.json()
+            })
+            .then(info => {
+                console.log(info)
+                setData(info)
+            })
+        console.log(data)
+    }
     return (
         <div>
             <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100 mt-11">
-                <h1>{sl}</h1>
+                {/* <h1>{sl}</h1> */}
                 <div className="flex flex-col items-center w-full">
                     <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                     <div className="flex flex-col items-center py-6 space-y-3">
@@ -38,8 +67,39 @@ const Opinion = ({ sl }) => {
                         </div>
                     </div>
                     <div className="flex flex-col w-full">
-                        <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
-                        <button type="button" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-indigo-400">Leave feedback</button>
+
+                        <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
+                            <form novalidate="" onSubmit={handleSubmit} className=" flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid ">
+                                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900 w-full">
+                                    <div className="grid grid-cols-2 gap-4 col-span-full md:col-span-3 text-center">
+                                        <div className="col-span-full sm:col-span-3">
+                                            <label for="firstname" className="text-sm ">Serial Number</label>
+                                            <input id="firstname" type="number" name='slnumber' placeholder="Serial Number" defaultValue={sl} readOnly className="w-full md:ml-12  text-center rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900" />
+                                        </div>
+                                        <div className="col-span-full sm:col-span-3">
+                                            <label for="firstname" className="text-sm ">Name</label>
+                                            <input id="firstname" type="text" name='name' placeholder="Name" className="w-full md:ml-12  text-center rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900" />
+                                        </div>
+                                        <div className="col-span-full sm:col-span-3">
+                                            <label for="lastname" className="text-sm ">Image Url</label>
+                                            <input id="lastname" type="text" name='imageurl' placeholder="Image Url " className=" rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
+                                        </div>
+                                        <div className="col-span-full sm:col-span-3">
+                                            <label for="email" className="text-sm ">Rating</label>
+                                            <input id="email" name='ratings' type="text" placeholder="Ratings" className="rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
+                                        </div>
+                                        <div className="col-span-full">
+                                            <label for="address" className="text-sm ">Text</label>
+                                            <input id="address" name='text' type="text" placeholder="Write Your thinking" className=" rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center sm:w-full" />
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+
+                                <button type="submit" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-indigo-400">Leave feedback</button>
+                            </form>
+                        </section>
+
                     </div>
                 </div>
                 <div className="flex items-center justify-center">

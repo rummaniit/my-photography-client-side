@@ -48,7 +48,7 @@ const Servicedetails = () => {
                     reviews?
                 } */}
                 <div className='p-6'>
-                    <h1 className='mt-16 mb-6 text-3xl font-semibold  text-purple-200 '>Reviews</h1>
+                    <h1 className='mt-6 mb-6 text-3xl font-semibold  text-purple-200 '>Reviews</h1>
                     {rev ?
 
                         results.map(result => <div>
