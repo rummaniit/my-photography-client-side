@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../images/logo.svg'
 
 const Header = () => {
+    let activeStyle = {
+        backgroundColor: "#301934",
+        padding: '15px',
+    };
+
+    // let activeClassName = "underline";
     let logoSize = {
         width: '120px'
     }
@@ -16,16 +22,31 @@ const Header = () => {
                     </Link>
                     <ul className="items-stretch hidden space-x-3 lg:flex">
                         <li className="flex">
-                            <Link rel="noopener noreferrer" to='/' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Home</Link>
+                            <NavLink rel="noopener noreferrer" to='/' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }>Home</NavLink>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" to='/services' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Services</Link>
+                            <NavLink rel="noopener noreferrer" to='/services' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }
+                            >Services</NavLink>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" to='/blogs' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blogs</Link>
+                            <NavLink rel="noopener noreferrer" to='/blogs' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400"
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }
+                            >Blogs</NavLink>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" to='/contact' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Contact</Link>
+                            <NavLink rel="noopener noreferrer" to='/contact' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400"
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }
+                            >Contact</NavLink>
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">

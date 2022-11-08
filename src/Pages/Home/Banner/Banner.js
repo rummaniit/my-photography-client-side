@@ -8,9 +8,9 @@ const Banner = () => {
                 <div>
                     <img src={imgbanner} alt="" />
                 </div>
-                <div className='flex items-center ml-24'>
+                <div className='flex items-center text-center md:ml24'>
                     <div>
-                        <h1 className="text-5xl font-semibold text-white">Photo Captures  </h1>
+                        <h1 className="text-5xl font-semibold text-white">Photo Captures</h1>
                         <h1 className='text-3xl text-purple-600 font-semibold mb-2'>The Best Memory</h1>
                         <h1 className='text-white'>Photography is the art, application, and practice of creating durable images by recording light, either electronically </h1>
                     </div>
