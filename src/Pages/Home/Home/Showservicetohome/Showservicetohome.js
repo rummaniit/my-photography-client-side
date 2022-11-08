@@ -7,6 +7,7 @@ const Showservicetohome = () => {
     const { services } = useContext(AuthServices)
     return (
         <div>
+            <h1 className='text-5xl m-12 text-purple-500 font-bold'>Services</h1>
             <div className='grid grid-cols-1 gap-3 md:grid-cols-3'>
                 {
                     services.slice(0, 3).map(service => <div>
