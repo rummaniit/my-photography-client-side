@@ -3,6 +3,8 @@ import { DynamicStar } from 'react-dynamic-star';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthServices } from '../../../../context/AuthContext/AuthContext';
 import Opinion from './Opinion/Opinion';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+
 
 const Servicedetails = () => {
     const services = useLoaderData()
@@ -19,7 +21,16 @@ const Servicedetails = () => {
                 <div>
                     <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
                         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-                            <img src={img} alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" />
+                            <PhotoProvider>
+                                <div className="foo">
+
+                                    <PhotoView key={sl} src={img}>
+                                        <img src={img} alt="" />
+                                    </PhotoView>
+
+                                </div>
+                            </PhotoProvider>
+                            {/* <img src={img} alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" /> */}
                             <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
                                 <div className="space-y-2">
                                     <Link rel="noopener noreferrer" href="#" className="inline-block text-2xl font-semibold sm:text-3xl">{name}</Link>
