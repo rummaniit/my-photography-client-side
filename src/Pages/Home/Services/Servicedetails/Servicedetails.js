@@ -7,10 +7,14 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 const Servicedetails = () => {
+    const imageStyle = {
+        width: '50px',
+        borderRadius: '50%'
+    }
     const services = useLoaderData()
     const { reviews } = useContext(AuthServices)
     // console.log(reviews);
-    const { author, des, img, name, ratings, sl } = services
+    const { author, des, img, name, ratings, sl, author_img, price } = services
     const results = reviews.filter(rvw => rvw.sl === sl)
     const rev = reviews.find(rvw => rvw.sl === sl)
     console.log(rev);
@@ -34,8 +38,12 @@ const Servicedetails = () => {
                             <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
                                 <div className="space-y-2">
                                     <Link rel="noopener noreferrer" href="#" className="inline-block text-2xl font-semibold sm:text-3xl">{name}</Link>
-                                    <p className="text-xs dark:text-gray-400">By
-                                        <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline"> {author}</Link>
+                                    <p className="flex justify-evenly items-center text-xs dark:text-gray-400">
+                                        <small className='text-xl text-purple-500'><Link rel="noopener noreferrer" href="#" className="text-xs hover:underline">By {author}</Link></small>
+                                        <small>
+                                            <img src={author_img} style={imageStyle} alt="" />
+                                        </small>
+                                        <small className='text-xl text-purple-500'>${price}</small>
                                     </p>
                                 </div>
                                 <div className="dark:text-gray-100">
@@ -45,6 +53,7 @@ const Servicedetails = () => {
                                     <small>
                                         <DynamicStar width={20} rating={ratings} />
                                     </small>
+
 
                                 </div>
                             </div>

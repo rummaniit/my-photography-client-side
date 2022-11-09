@@ -8,7 +8,7 @@ const Hireme = () => {
                 <div className="flex flex-col justify-between">
                     <div className="space-y-2">
                         <h2 className="text-4xl font-bold leading-tight lg:text-5xl ">Let's <span className='text-purple-500'>talk!</span></h2>
-                        <div className="text-purple-100">Vivamus in nisl metus? Phasellus.</div>
+
                     </div>
                     <img src={talkimg} alt="" className="p-6 h-52 md:h-64" />
                 </div>

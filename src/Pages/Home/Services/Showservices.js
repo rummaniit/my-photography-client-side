@@ -3,13 +3,13 @@ import { DynamicStar } from 'react-dynamic-star';
 import { Link } from 'react-router-dom';
 
 const Showservices = ({ service }) => {
-    const { name, ratings, img, author, des, _id } = service
+    const { name, ratings, img, author, des, _id, author_img } = service
     console.log(_id);
     return (
         <div>
             <div className="flex flex-col max-w-lg m-10 p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex space-x-4">
-                    <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+                    <img alt="" src={author_img} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
                     <div className="flex flex-col space-y-1">
                         <Link rel="noopener noreferrer" href="#" className="text-sm font-semibold">{author}</Link>
                         <span className="text-xs dark:text-gray-400">4 hours ago</span>

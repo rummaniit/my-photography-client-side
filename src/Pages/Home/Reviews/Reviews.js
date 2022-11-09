@@ -30,7 +30,7 @@ const Reviews = () => {
                                         </p>
                                     </div>
                                     <div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-indigo-400 dark:text-gray-900">
-                                        <img src={review.img} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-700" />
+                                        <img src={review.img} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-700" />
                                         <p className="text-xl font-semibold leading-tight">{review.name}</p>
                                         <p className="text-sm uppercase mt-4">
                                             <DynamicStar width={20} rating={review.ratings} />
