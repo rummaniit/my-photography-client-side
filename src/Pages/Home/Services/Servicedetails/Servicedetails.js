@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DynamicStar } from 'react-dynamic-star';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthServices } from '../../../../context/AuthContext/AuthContext';
@@ -7,17 +7,30 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 const Servicedetails = () => {
+    const { reviews, currentUser } = useContext(AuthServices)
+    console.log(currentUser);
     const imageStyle = {
         width: '50px',
         borderRadius: '50%'
     }
     const services = useLoaderData()
-    const { reviews } = useContext(AuthServices)
-    // console.log(reviews);
+    console.log(reviews);
     const { author, des, img, name, ratings, sl, author_img, price } = services
     const results = reviews.filter(rvw => rvw.sl === sl)
     const rev = reviews.find(rvw => rvw.sl === sl)
     console.log(rev);
+
+
+    let [person, setPerson] = useState([])
+    useEffect(() => {
+        fetch(`http://localhost:5000/users?email=${currentUser?.email}`)
+            .then(res => {
+                res.json()
+            })
+            .then(data => setPerson(data))
+    }, [currentUser?.email])
+    console.log(person);
+
     return (
         <div>
             <div className='grid grid-cols-1 gap-3 md:grid-cols-2'>
@@ -105,9 +118,14 @@ const Servicedetails = () => {
                         </div>)
                         : <h1 className='text-2xl text-purple-500 font-bold'>No Reviews Yet</h1>
                     }
-                    <Opinion
-                        sl={sl}
-                    ></Opinion>
+                    {
+                        currentUser ? <Opinion
+                            sl={sl}
+                        ></Opinion> : <div>
+                            <h1 className='text-purple-900 text-4xl font-extrabold border p-10 mt-16'>Please Sign In First to Give Feedback </h1>
+                            <Link to='/login'><button className='bg-purple-300 mt-10 rounded-md px-16 py-2'>Sign In</button></Link>
+                        </div>
+                    }
                 </div>
 
 

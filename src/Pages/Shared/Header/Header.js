@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthServices } from '../../../context/AuthContext/AuthContext';
 import logo from '../../../images/logo.svg'
 
 const Header = () => {
+    const { Logout, currentUser } = useContext(AuthServices)
     let activeStyle = {
         backgroundColor: "#301934",
         padding: '15px',
@@ -11,6 +13,14 @@ const Header = () => {
     // let activeClassName = "underline";
     let logoSize = {
         width: '120px'
+    }
+    const handleLogout = () => {
+        Logout()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            });
     }
     return (
         <div>
@@ -50,11 +60,25 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">
-                        <Link to='/login'>
-                            <button className="self-center px-8 py-3 rounded">Sign in</button>
-                        </Link>
-                        <Link to='register'>
-                            <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Sign up</button></Link>
+                        {
+                            currentUser ? <div>
+                                <Link>
+                                    <button className="self-center px-8 py-3 rounded" onClick={handleLogout}>Log Out</button>
+                                </Link>
+                                <Link to='/addservices'>
+                                    <button className="self-center px-8 py-3 font-semibold rounded ">Add Service</button>
+                                </Link>
+                            </div> : <div>
+                                <Link to='/login'>
+                                    <button className="self-center px-8 py-3 rounded">Sign in</button>
+                                </Link>
+                                <Link to='/register'>
+                                    <button className="self-center px-8 py-3 font-semibold rounded ">Sign up</button>
+                                </Link>
+
+                            </div>
+                        }
+
                     </div>
                     <button className="p-4 lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

@@ -1,19 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthServices } from '../../context/AuthContext/AuthContext';
 
 const Register = () => {
+
+    const location = useLocation()
+    const navigate = useNavigate()
+    let from = location.state?.from?.pathname || '/'
+
+    const { createUser } = useContext(AuthServices)
+    // console.log(users);
+
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target
         const name = form.name.value
+        const email = form.email.value
         const imgurl = form.imgurl.value
         const password = form.password.value
         const Cpassword = form.Cpassword.value
         const userInfo = {
-            name, imgurl, password, Cpassword
+            name, imgurl, password, Cpassword, email
         }
 
-        console.log(userInfo, password, Cpassword);
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => {
+                res.json()
+            })
+            .then(info => {
+                console.log(info)
+                // setLoading(true)
+                // console.log(info)
+            })
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                // setUsers(user)
+                // console.log(users);
+                // setcurrentUser(userInfo)
+                form.reset()
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        // console.log(userInfo, password, Cpassword);
 
     }
     return (
@@ -26,16 +65,16 @@ const Register = () => {
                 <form novalidate="" action="" onSubmit={handleRegister} className="space-y-12 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div>
-                            <label for="email" className="block mb-2 text-sm">User Name</label>
-                            <input type="text" name="name" id="email" placeholder="Enter your name" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+                            <label for="name" className="block mb-2 text-sm">User Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter your name" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
                         </div>
                         <div>
                             <label for="email" className="block mb-2 text-sm">Email address</label>
                             <input type="email" name="email" id="email" placeholder="Enter Your Email" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
                         </div>
                         <div>
-                            <label for="email" className="block mb-2 text-sm">Image Url</label>
-                            <input type="text" name="imgurl" id="email" placeholder="Enter Your Image Url" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+                            <label for="imgurl" className="block mb-2 text-sm">Image Url</label>
+                            <input type="text" name="imgurl" id="imgurl" placeholder="Enter Your Image Url" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
                         </div>
                         <div>
                             <label for="password" className="block mb-2 text-sm">Password</label>

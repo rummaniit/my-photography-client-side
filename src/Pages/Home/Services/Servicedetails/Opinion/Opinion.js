@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthServices } from '../../../../../context/AuthContext/AuthContext';
 
 const Opinion = ({ sl }) => {
+    const { currentUser, users } = useContext(AuthServices)
+    console.log(currentUser, users);
     let [data, setData] = useState([])
     const handleSubmit = (e) => {
         e.preventDefault()
