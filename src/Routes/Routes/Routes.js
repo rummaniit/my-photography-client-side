@@ -3,6 +3,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Servicedetails from "../../Pages/Home/Services/Servicedetails/Servicedetails";
 import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
 import Main from "../Main/Main";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/services',
