@@ -1,5 +1,6 @@
 import AddServices from "../../Pages/AddServices/AddServices";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Error from "../../Pages/Error/Error";
 import Home from "../../Pages/Home/Home/Home";
 import Opinion from "../../Pages/Home/Services/Servicedetails/Opinion/Opinion";
 import Servicedetails from "../../Pages/Home/Services/Servicedetails/Servicedetails";
@@ -17,6 +18,7 @@ const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: ([
             {
                 path: '/',

@@ -9,7 +9,7 @@ import useTitle from '../../../../hooks/useTitle';
 
 const Servicedetails = () => {
     useTitle('Service Details')
-    const { reviews, currentUser } = useContext(AuthServices)
+    const { reviews, currentUser, Logout } = useContext(AuthServices)
     console.log(currentUser);
     const imageStyle = {
         width: '50px',
@@ -25,9 +25,16 @@ const Servicedetails = () => {
 
     let [person, setPerson] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/users?email=${currentUser?.email}`)
+        fetch(`http://localhost:5000/users?email=${currentUser?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => {
-                res.json()
+                if (res.status === 401 && res.status === 403) {
+                    Logout()
+                }
+                return res.json()
             })
             .then(data => setPerson(data))
     }, [currentUser?.email])
