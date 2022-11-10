@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthServices } from '../../../context/AuthContext/AuthContext';
+import useTitle from '../../../hooks/useTitle';
 import Myreview from '../../My Review/Myreview';
 import Showservices from './Showservices';
 
 const Services = () => {
+    useTitle('All Services')
     const { services } = useContext(AuthServices)
     console.log(services);
     return (

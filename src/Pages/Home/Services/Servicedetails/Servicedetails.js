@@ -4,9 +4,11 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthServices } from '../../../../context/AuthContext/AuthContext';
 import Opinion from './Opinion/Opinion';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import useTitle from '../../../../hooks/useTitle';
 
 
 const Servicedetails = () => {
+    useTitle('Service Details')
     const { reviews, currentUser } = useContext(AuthServices)
     console.log(currentUser);
     const imageStyle = {

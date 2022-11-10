@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthServices } from '../../context/AuthContext/AuthContext';
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
@@ -13,12 +14,12 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/'
 
 
+    useTitle('Login')
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-
         const userInfo = {
             email, password
         }

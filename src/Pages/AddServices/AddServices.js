@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthServices } from '../../context/AuthContext/AuthContext';
+import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
+    useTitle('Add Services')
     const { services, currentUser } = useContext(AuthServices)
     console.log(currentUser);
     const handleService = (e) => {

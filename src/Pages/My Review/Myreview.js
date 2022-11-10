@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthServices } from '../../context/AuthContext/AuthContext';
+import useTitle from '../../hooks/useTitle';
 
 const Myreview = () => {
+    useTitle('My Review')
     // console.log(sr);
     const { reviews, currentUser, services, setReviews } = useContext(AuthServices)
     console.log(reviews)

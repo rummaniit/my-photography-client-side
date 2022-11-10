@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthServices } from '../../context/AuthContext/AuthContext';
+import useTitle from '../../hooks/useTitle';
 
 const Blogs = () => {
+    useTitle('Blogs')
     const { currentUser } = useContext(AuthServices)
     return (
         <div className='grid grid-cols-1 gap-4  m-10 md:grid-cols-2'>

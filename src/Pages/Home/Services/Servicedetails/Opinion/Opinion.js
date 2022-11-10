@@ -74,6 +74,7 @@ const Opinion = ({ sl }) => {
                     <div className="flex flex-col w-full">
 
                         <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
+
                             <form novalidate="" onSubmit={handleSubmit} className=" flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid ">
                                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900 w-full">
                                     <div className="grid grid-cols-2 gap-4 col-span-full md:col-span-3 text-center">

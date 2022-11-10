@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Update = () => {
+    useTitle('Update Pages')
     const review = useLoaderData()
     console.log(review);
     const [abc, setAbc] = useState(review)
