@@ -25,7 +25,7 @@ const Servicedetails = () => {
 
     let [person, setPerson] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/users?email=${currentUser?.email}`, {
+        fetch(`https://my-photography-server-side.vercel.app/users?email=${currentUser?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }

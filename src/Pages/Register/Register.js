@@ -25,7 +25,7 @@ const Register = () => {
             name, imgurl, password, Cpassword, email
         }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://my-photography-server-side.vercel.app/users', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json'

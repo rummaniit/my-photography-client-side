@@ -30,7 +30,7 @@ const Login = () => {
                     email: user.email
                 }
                 console.log(present);
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://my-photography-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

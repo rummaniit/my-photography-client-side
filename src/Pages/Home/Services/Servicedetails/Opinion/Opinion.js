@@ -19,7 +19,7 @@ const Opinion = ({ sl }) => {
         const reviews = {
             sl, name, ratings, img, text, email
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://my-photography-server-side.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json'

@@ -25,7 +25,7 @@ const Myreview = () => {
     // console.log(bal);
     let handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://my-photography-server-side.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => {

@@ -11,7 +11,7 @@ const Update = () => {
     const handleUpdate = (id) => {
 
         // nevigate(`/update/${id}`)
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://my-photography-server-side.vercel.app/reviews/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

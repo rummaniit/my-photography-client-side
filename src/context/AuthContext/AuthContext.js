@@ -16,7 +16,7 @@ const AuthContext = ({ children }) => {
 
     useEffect(() => {
         // setLoading(true)
-        fetch('http://localhost:5000/services')
+        fetch('https://my-photography-server-side.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data.reverse())
