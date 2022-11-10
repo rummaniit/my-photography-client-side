@@ -10,7 +10,7 @@ const Reviews = () => {
             <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
                 <h1 className="p-4 text-4xl  font-semibold leading-none text-center text-white">What our customers <span className='text-purple-500'>are saying about us</span></h1>
             </div>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-1">
                 {
                     reviews.slice(0, 3).map(review => <div>
                         <section className=" dark:bg-gray-800 dark:text-gray-100 ">
