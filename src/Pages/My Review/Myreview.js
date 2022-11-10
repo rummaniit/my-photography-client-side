@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthServices } from '../../context/AuthContext/AuthContext';
 
 const Myreview = () => {
@@ -33,6 +34,19 @@ const Myreview = () => {
                 setReviews(remainingCount)
                 console.log(remainingCount);
             })
+    }
+    const nevigate = useNavigate()
+
+    const handleUpdate = (id) => {
+        nevigate(`/update/${id}`)
+        // fetch(`http://localhost:5000/reviews/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(reviews)
+        // }).then(res => res.json())
+        //     .then(data => console.log(data))
     }
     return (
         <div>
@@ -76,7 +90,7 @@ const Myreview = () => {
                                         </td>
 
                                         <td className="p-3">
-                                            <button className="text-orange-400 p-3">Update</button>
+                                            <button className="text-orange-400 p-3" onClick={() => handleUpdate(allrv._id)}>Update</button>
                                         </td>
 
                                     </tr>
