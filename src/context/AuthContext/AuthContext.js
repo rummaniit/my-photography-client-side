@@ -10,6 +10,7 @@ const AuthContext = ({ children }) => {
     const [services, setServices] = useState([])
     const [reviews, setReviews] = useState([])
     const [currentUser, setcurrentUser] = useState('')
+    const [errors, setErrors] = useState('')
     // const [users, setUsers] = useState({})
     const [loading, setLoading] = useState(true)
 
@@ -69,7 +70,7 @@ const AuthContext = ({ children }) => {
         reviews,
         createUser,
         signIn,
-        currentUser, Logout, loading, loginWithGoogle, setReviews, setLoading
+        currentUser, Logout, loading, loginWithGoogle, setReviews, setLoading, setErrors, errors
     }
     return (
         <AuthServices.Provider value={authInfo}>

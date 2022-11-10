@@ -6,7 +6,7 @@ import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
-    const { signIn, loginWithGoogle } = useContext(AuthServices)
+    const { signIn, loginWithGoogle, setErrors, errors } = useContext(AuthServices)
 
 
     const location = useLocation()
@@ -45,7 +45,7 @@ const Login = () => {
                 form.reset()
             })
             .catch(error => {
-                console.log(error.message);
+                setErrors(error.message)
             })
         console.log(userInfo);
 
@@ -56,6 +56,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                setErrors(' ')
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -101,6 +102,9 @@ const Login = () => {
 
                             </div>
                         </div>
+                        {
+                            errors ? <h1 className='text-red-700'>{errors}</h1> : ''
+                        }
                         <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">Sign in</button>
                     </form>
                 </div>
