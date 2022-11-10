@@ -26,7 +26,7 @@ const Header = () => {
         <div>
             <header className="p-6 dark:bg-gray-800 dark:text-gray-100">
                 <div className="container flex justify-between h-16 mx-auto">
-                    <Link rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2" >
+                    <Link to='/' rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2" >
                         <h1 className='text-purple-300 text-3xl font-bold'>My Photography</h1>
                         <img src={logo} style={logoSize} alt="" />
                     </Link>

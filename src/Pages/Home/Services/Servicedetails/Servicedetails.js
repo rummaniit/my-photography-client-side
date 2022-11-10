@@ -20,7 +20,7 @@ const Servicedetails = () => {
     const { author, des, img, name, ratings, sl, author_img, price } = services
     const results = reviews.filter(rvw => rvw.sl === sl)
     const rev = reviews.find(rvw => rvw.sl === sl)
-    console.log(rev);
+    // console.log(results.updatedAt);
 
 
     let [person, setPerson] = useState([])
@@ -89,7 +89,7 @@ const Servicedetails = () => {
                     <h1 className='mt-6 mb-6 text-3xl font-semibold  text-purple-200 '>Reviews</h1>
                     {rev ?
 
-                        results.map(result => <div>
+                        results.reverse().map(result => <div>
 
                             <div className=''>
                             </div>

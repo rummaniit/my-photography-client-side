@@ -7,6 +7,7 @@ import AuthContext from './context/AuthContext/AuthContext';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <AuthContext>

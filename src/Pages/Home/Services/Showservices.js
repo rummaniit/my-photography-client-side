@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DynamicStar } from 'react-dynamic-star';
 import { Link } from 'react-router-dom';
+import { AuthServices } from '../../../context/AuthContext/AuthContext';
 
 const Showservices = ({ service }) => {
+    let { setLoading } = useContext(AuthServices)
+    // setLoading(true)
     const { name, ratings, img, author, des, _id, author_img } = service
 
     console.log(_id);

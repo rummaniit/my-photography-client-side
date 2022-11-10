@@ -14,15 +14,23 @@ const AuthContext = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // setLoading(true)
         fetch('http://localhost:5000/services')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => {
+                setServices(data)
+                // return
+                // setLoading(false)
+            })
+
     }, [])
 
     useEffect(() => {
+        // setLoading(true)
         fetch('http://localhost:5000/reviews/')
             .then(res => res.json())
             .then(data => setReviews(data))
+        // .finally(() => setLoading(false))
     }, [])
     // Authentication
     const createUser = (email, password) => {
@@ -61,7 +69,7 @@ const AuthContext = ({ children }) => {
         reviews,
         createUser,
         signIn,
-        currentUser, Logout, loading, loginWithGoogle, setReviews
+        currentUser, Logout, loading, loginWithGoogle, setReviews, setLoading
     }
     return (
         <AuthServices.Provider value={authInfo}>

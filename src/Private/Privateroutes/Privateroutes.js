@@ -8,7 +8,7 @@ const Privateroutes = ({ children }) => {
     console.log(currentUser);
     if (loading) {
         return <>
-            <h1 className="text-3xl text-blue-900">Loading</h1>
+            <div className="w-16 h-16 border-4 mx-auto border-dashed rounded-full animate-spin dark:border-violet-400"></div>
         </>
     }
     if (!currentUser) {

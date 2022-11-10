@@ -5,6 +5,8 @@ import Myreview from '../../My Review/Myreview';
 import Showservices from './Showservices';
 
 const Services = () => {
+    const { setLoading } = useContext(AuthServices)
+    // setLoading(true)
     useTitle('All Services')
     const { services } = useContext(AuthServices)
     console.log(services);
