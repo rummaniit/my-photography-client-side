@@ -28,7 +28,7 @@ const AuthContext = ({ children }) => {
 
     useEffect(() => {
         // setLoading(true)
-        fetch('http://localhost:5000/reviews/')
+        fetch('https://my-photography-server-side.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
         // .finally(() => setLoading(false))
