@@ -29,10 +29,13 @@ const Servicedetails = () => {
             })
             .then(data => setPerson(data))
     }, [currentUser?.email])
-    console.log(person);
+    // console.log(person);
+
+
 
     return (
         <div>
+
             <div className='grid grid-cols-1 gap-3 md:grid-cols-2'>
                 {/* -------- */}
                 <div>

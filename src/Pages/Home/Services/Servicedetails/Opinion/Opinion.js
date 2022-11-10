@@ -13,10 +13,11 @@ const Opinion = ({ sl }) => {
         const img = form.imageurl.value
         const ratings = parseInt(form.ratings.value)
         const text = form.text.value
+        const email = form.email.value
         form.reset()
         window.location.reload()
         const reviews = {
-            sl, name, ratings, img, text
+            sl, name, ratings, img, text, email
         }
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
@@ -86,11 +87,15 @@ const Opinion = ({ sl }) => {
                                         </div>
                                         <div className="col-span-full sm:col-span-3">
                                             <label for="lastname" className="text-sm ">Image Url</label>
-                                            <input id="lastname" type="text" name='imageurl' placeholder="Image Url " className=" rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
+                                            <input id="lastname" type="text" defaultValue={currentUser.photoURL} readOnly name='imageurl' placeholder="Image Url " className=" rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
                                         </div>
                                         <div className="col-span-full sm:col-span-3">
-                                            <label for="email" className="text-sm ">Rating</label>
-                                            <input id="email" name='ratings' type="text" placeholder="Ratings" className="rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
+                                            <label for="ratings" className="text-sm ">Rating</label>
+                                            <input id="ratings" name='ratings' type="text" placeholder="Ratings" className="rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
+                                        </div>
+                                        <div className="col-span-full sm:col-span-3">
+                                            <label for="email" className="text-sm">Email</label>
+                                            <input id="email" name='email' type="email" placeholder="Email" className="rounded-md focus:ring focus:ring-opacity-75 focus:ring-indigo-400 dark:border-gray-700 dark:text-gray-900 w-full md:ml-12  text-center " />
                                         </div>
                                         <div className="col-span-full">
                                             <label for="address" className="text-sm ">Text</label>

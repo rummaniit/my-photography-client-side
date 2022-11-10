@@ -51,13 +51,13 @@ const Header = () => {
                                 }
                             >Blogs</NavLink>
                         </li>
-                        <li className="flex">
+                        {/* <li className="flex">
                             <NavLink rel="noopener noreferrer" to='/contact' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400"
                                 style={({ isActive }) =>
                                     isActive ? activeStyle : undefined
                                 }
                             >Contact</NavLink>
-                        </li>
+                        </li> */}
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">
                         {
@@ -67,6 +67,9 @@ const Header = () => {
                                 </Link>
                                 <Link to='/addservices'>
                                     <button className="self-center px-8 py-3 font-semibold rounded ">Add Service</button>
+                                </Link>
+                                <Link to='/myreview'>
+                                    <button className="self-center px-8 py-3 font-semibold rounded ">My Review</button>
                                 </Link>
                             </div> : <div>
                                 <Link to='/login'>
