@@ -17,6 +17,7 @@ const AddServices = () => {
         const author_img = form.Aimg.value
         const price = form.price.value
         const sl = parseInt(form.sl.value)
+        window.location.reload()
         const serviceInfo = {
             name, ratings, author, des, img, author_img, price, sl
         }

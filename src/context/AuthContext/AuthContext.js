@@ -18,7 +18,7 @@ const AuthContext = ({ children }) => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
-                setServices(data)
+                setServices(data.reverse())
                 // return
                 // setLoading(false)
             })
