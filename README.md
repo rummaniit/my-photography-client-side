@@ -3,6 +3,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+## About Projects
+# Link https://photography-d5c7a.web.app/
+
+## Important Points
+# React Router Dom
+# css=>tailwind,Mamba ui
+# Authentication: Firebase
+# Database: Mongodb
+# packages==>react-photo-views, react-dynamic-star
+# CRUD operations
+# JWT 
+# spinner when data load
 
 In the project directory, you can run:
 
