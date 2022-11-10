@@ -61,7 +61,7 @@ const AuthContext = ({ children }) => {
         reviews,
         createUser,
         signIn,
-        currentUser, Logout, loading, loginWithGoogle
+        currentUser, Logout, loading, loginWithGoogle, setReviews
     }
     return (
         <AuthServices.Provider value={authInfo}>

@@ -3,7 +3,7 @@ import { AuthServices } from '../../context/AuthContext/AuthContext';
 
 const Myreview = () => {
     // console.log(sr);
-    const { reviews, currentUser, services } = useContext(AuthServices)
+    const { reviews, currentUser, services, setReviews } = useContext(AuthServices)
     console.log(reviews)
     const imgSize = {
         width: '100px'
@@ -20,7 +20,20 @@ const Myreview = () => {
     console.log(results);
     // const bal = ans.filter(allrv => results.map(rs => rs.sl === allrv.sl))
     // console.log(bal);
-
+    let handleDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+                res.json()
+            })
+            .then(data => {
+                let remainingCount = reviews.filter(rv => rv._id !== id)
+                setReviews(remainingCount)
+                console.log(remainingCount);
+            })
+    }
     return (
         <div>
 
@@ -35,10 +48,10 @@ const Myreview = () => {
                                 <tr className="text-center">
                                     {/* <th className="p-3">Review Serial</th> */}
                                     <th className="p-3">Service Name</th>
-                                    <th className="p-3">Reviewer email</th>
+                                    <th className="p-3 text-right">Service Image</th>
                                     <th className="p-3">Review</th>
-                                    <th className="p-3">Reviewer Ratings</th>
-                                    <th className="p-3 text-right">Reviewer Image</th>
+                                    <th className="p-3">Delete</th>
+                                    <th className="p-3">Update</th>
                                     {/* <th className="p-3">Service Image</th> */}
                                 </tr>
                             </thead>
@@ -52,16 +65,18 @@ const Myreview = () => {
                                             <p>{rs.name}</p>
                                         </td>
                                         <td className="p-3">
-                                            <p>{allrv.email}</p>
+                                            <p className="dark:text-gray-400"><img src={rs.img} style={imgSize} alt="" /></p>
                                         </td>
                                         <td className="p-3">
                                             <p className="dark:text-gray-400">{allrv.text}</p>
                                         </td>
+
                                         <td className="p-3">
-                                            <p className="dark:text-gray-400">{rs.ratings}</p>
+                                            <button className="text-red-700 p-3" onClick={() => handleDelete(allrv._id)}>Delete</button>
                                         </td>
+
                                         <td className="p-3">
-                                            <p className="dark:text-gray-400"><img src={rs.img} style={imgSize} alt="" /></p>
+                                            <button className="text-orange-400 p-3">Update</button>
                                         </td>
 
                                     </tr>
