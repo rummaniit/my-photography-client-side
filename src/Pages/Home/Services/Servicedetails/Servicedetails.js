@@ -23,22 +23,22 @@ const Servicedetails = () => {
     // console.log(results.updatedAt);
 
 
-    let [person, setPerson] = useState([])
-    useEffect(() => {
-        fetch(`https://my-photography-server-side.vercel.app/users?email=${currentUser?.email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 401 && res.status === 403) {
-                    Logout()
-                }
-                return res.json()
-            })
-            .then(data => setPerson(data))
-    }, [currentUser?.email])
-    // console.log(person);
+    // let [person, setPerson] = useState([])
+    // useEffect(() => {
+    //     fetch(`https://my-photography-server-side.vercel.app/users?email=${currentUser?.email}`, {
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('token')}`
+    //         }
+    //     })
+    //         .then(res => {
+    //             if (res.status === 401 && res.status === 403) {
+    //                 Logout()
+    //             }
+    //             return res.json()
+    //         })
+    //         .then(data => setPerson(data))
+    // }, [currentUser?.email])
+    // // console.log(person);
 
 
 
