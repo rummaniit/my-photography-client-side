@@ -14,7 +14,8 @@ const Update = () => {
         fetch(`https://my-photography-server-side.vercel.app/reviews/${id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(abc)
         }).then(res => res.json())

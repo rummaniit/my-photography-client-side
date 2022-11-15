@@ -7,7 +7,7 @@ const Myreview = () => {
     useTitle('My Review')
     // console.log(sr);
     const { reviews, currentUser, services, setReviews } = useContext(AuthServices)
-    console.log(reviews)
+    // console.log(reviews)
     const imgSize = {
         width: '100px'
     }
@@ -15,12 +15,15 @@ const Myreview = () => {
     // console.log(out);
     // services.filter(ser => console.log(ser.sl))
     console.log(currentUser);
+    // reviews.map(abc => console.log(abc.email))
     const ans = reviews.filter(rvw => rvw.email === currentUser.email)
     console.log(ans);
     // const ser = ans.find(anss => anss.sl === sr.sl)
     // console.log(ser);
     const results = services.filter(({ sl: id1 }) => ans.some(({ sl: id2 }) => id2 === id1));
     console.log(results);
+    // const results = services.filter(element => ans.includes(element.sl));
+    // console.log(results);
     // const bal = ans.filter(allrv => results.map(rs => rs.sl === allrv.sl))
     // console.log(bal);
     let handleDelete = (id) => {

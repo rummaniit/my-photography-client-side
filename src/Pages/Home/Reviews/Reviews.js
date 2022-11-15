@@ -4,7 +4,7 @@ import { AuthServices } from '../../../context/AuthContext/AuthContext';
 
 const Reviews = () => {
     const { reviews } = useContext(AuthServices)
-    console.log(reviews);
+    // console.log(reviews);
     return (
         <div className='mb-14'>
             <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">

@@ -11,18 +11,25 @@ const AuthContext = ({ children }) => {
     const [reviews, setReviews] = useState([])
     const [currentUser, setcurrentUser] = useState('')
     const [errors, setErrors] = useState('')
-    // const [users, setUsers] = useState({})
+    // // const [users, setUsers] = useState({})
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // setLoading(true)
+        // (async function () {
+        //     const data = await fetch('https://my-photography-server-side.vercel.app/services')
+        //     setServices(data)
+        //     console.log(data)
+        // })();
         fetch('https://my-photography-server-side.vercel.app/services')
             .then(res => res.json())
             .then(data => {
-                setServices(data.reverse())
-                // return
-                // setLoading(false)
+                setServices(data)
+                console.log(data)
             })
+            .catch(e => {
+                console.log(e);
+                return e;
+            });
 
     }, [])
 
@@ -31,8 +38,12 @@ const AuthContext = ({ children }) => {
         fetch('https://my-photography-server-side.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
+            .catch(e => {
+                console.log(e);
+                return e;
+            });
         // .finally(() => setLoading(false))
-    }, [])
+    }, [reviews])
     // Authentication
     const createUser = (email, password) => {
         setLoading(true)
@@ -70,7 +81,7 @@ const AuthContext = ({ children }) => {
         reviews,
         createUser,
         signIn,
-        currentUser, Logout, loading, loginWithGoogle, setReviews, setLoading, setErrors, errors
+        currentUser, Logout, loading, loginWithGoogle, setServices, setReviews, setLoading, setErrors, errors
     }
     return (
         <AuthServices.Provider value={authInfo}>

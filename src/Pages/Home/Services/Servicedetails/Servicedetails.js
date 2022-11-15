@@ -9,7 +9,7 @@ import useTitle from '../../../../hooks/useTitle';
 
 const Servicedetails = () => {
     useTitle('Service Details')
-    const { reviews, currentUser, Logout } = useContext(AuthServices)
+    const { reviews, currentUser } = useContext(AuthServices)
     console.log(currentUser);
     const imageStyle = {
         width: '50px',
@@ -19,6 +19,7 @@ const Servicedetails = () => {
     console.log(reviews);
     const { author, des, img, name, ratings, sl, author_img, price } = services
     const results = reviews.filter(rvw => rvw.sl === sl)
+    // only for condition
     const rev = reviews.find(rvw => rvw.sl === sl)
     // console.log(results.updatedAt);
 

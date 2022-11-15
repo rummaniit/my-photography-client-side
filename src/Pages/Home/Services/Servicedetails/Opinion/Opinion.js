@@ -15,16 +15,17 @@ const Opinion = ({ sl }) => {
         const text = form.text.value
         const email = form.email.value
         form.reset()
-        window.location.reload()
-        const reviews = {
+        // window.location.reload()
+        const review = {
             sl, name, ratings, img, text, email
         }
         fetch('https://my-photography-server-side.vercel.app/reviews', {
             method: 'POST',
             headers: {
-                "content-type": 'application/json'
+                "Content-Type": 'application/json'
+                // 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(reviews)
+            body: JSON.stringify(review)
         })
             .then(res => {
                 res.json()

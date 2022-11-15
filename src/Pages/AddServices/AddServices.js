@@ -4,8 +4,8 @@ import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
     useTitle('Add Services')
-    const { services, currentUser } = useContext(AuthServices)
-    console.log(currentUser);
+    const { services, setServices, currentUser } = useContext(AuthServices)
+    // console.log(currentUser);
     const handleService = (e) => {
         e.preventDefault()
         const form = e.target
@@ -17,7 +17,7 @@ const AddServices = () => {
         const author_img = form.Aimg.value
         const price = form.price.value
         const sl = parseInt(form.sl.value)
-        window.location.reload()
+        // window.location.reload()
         const serviceInfo = {
             name, ratings, author, des, img, author_img, price, sl
         }
@@ -26,7 +26,7 @@ const AddServices = () => {
         fetch('https://my-photography-server-side.vercel.app/services', {
             method: 'POST',
             headers: {
-                "content-type": 'application/json'
+                "Content-Type": 'application/json'
             },
             body: JSON.stringify(serviceInfo)
         })
@@ -37,7 +37,7 @@ const AddServices = () => {
             })
             .then(info => {
                 console.log(info)
-                // setData(info)
+                setServices([...services, info])
             })
     }
     return (

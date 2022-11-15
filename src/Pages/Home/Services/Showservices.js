@@ -8,7 +8,7 @@ const Showservices = ({ service }) => {
     // setLoading(true)
     const { name, ratings, img, author, des, _id, author_img } = service
 
-    console.log(_id);
+    // console.log(_id);
     return (
         <div>
             <div className="flex flex-col max-w-lg m-10 p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">

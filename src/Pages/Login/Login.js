@@ -33,7 +33,8 @@ const Login = () => {
                 fetch('https://my-photography-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
-                        'content-type': 'application/json'
+                        'Content-Type': 'application/json',
+                        // 'Access-Control-Allow-Origin': '*'
                     },
                     body: JSON.stringify(present)
                 }).then(res => res.json())

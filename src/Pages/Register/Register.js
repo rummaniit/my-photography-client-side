@@ -28,12 +28,14 @@ const Register = () => {
         fetch('https://my-photography-server-side.vercel.app/users', {
             method: 'POST',
             headers: {
-                "content-type": 'application/json'
+                "Content-Type": 'application/json',
+                // "Access-Control-Allow-Origin": '*'
             },
             body: JSON.stringify(userInfo)
         })
             .then(res => {
                 res.json()
+
             })
             .then(info => {
                 console.log(info)
@@ -45,9 +47,6 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
-                // setUsers(user)
-                // console.log(users);
-                // setcurrentUser(userInfo)
                 form.reset()
                 navigate(from, { replace: true })
             })
