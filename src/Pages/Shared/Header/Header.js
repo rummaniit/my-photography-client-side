@@ -101,7 +101,7 @@ const Header = () => {
                                         }
                                     >Login</NavLink>
                                 </li>
-                                <li className="flex sm:bg-purple-900">
+                                <li className="flex">
                                     <NavLink rel="noopener noreferrer" to='/register' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
                                         style={({ isActive }) =>
                                             isActive ? activeStyle : undefined
