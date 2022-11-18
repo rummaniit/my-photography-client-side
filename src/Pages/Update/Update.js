@@ -19,7 +19,7 @@ const Update = () => {
         // const ratings = form.ratings.value
         const text = form.rev.value
         let info = {
-            text
+            text: text
         }
         fetch(`https://my-photography-server-side-2.vercel.app/reviews/${review._id}`, {
             method: 'PUT',
@@ -28,7 +28,7 @@ const Update = () => {
                 // 'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(info)
-        }).then(res => res.json())
+        })
             .then(data => {
                 // setAbc(data)
                 console.log(data);
