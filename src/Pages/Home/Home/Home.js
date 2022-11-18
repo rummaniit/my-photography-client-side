@@ -7,6 +7,7 @@ import Showservicetohome from './Showservicetohome/Showservicetohome';
 const Home = () => {
     return (
         <div>
+
             <Banner></Banner>
             <Showservicetohome></Showservicetohome>
             <Hireme></Hireme>

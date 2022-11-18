@@ -20,27 +20,26 @@ const AuthContext = ({ children }) => {
         //     setServices(data)
         //     console.log(data)
         // })();
-        fetch('https://my-photography-server-side.vercel.app/services')
+        fetch('https://my-photography-server-side-2.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
                 console.log(data)
             })
             .catch(e => {
-                console.log(e);
-                return e;
+                console.log(e.message);
             });
 
-    }, [])
+    }, [services])
 
     useEffect(() => {
         // setLoading(true)
-        fetch('https://my-photography-server-side.vercel.app/reviews')
+        fetch('https://my-photography-server-side-2.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
             .catch(e => {
                 console.log(e);
-                return e;
+                // return e;
             });
         // .finally(() => setLoading(false))
     }, [reviews])

@@ -23,7 +23,7 @@ const AddServices = () => {
         }
         // console.log(serviceInfo);
 
-        fetch('https://my-photography-server-side.vercel.app/services', {
+        fetch('https://my-photography-server-side-2.vercel.app/services', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
@@ -33,7 +33,7 @@ const AddServices = () => {
             .then(res => {
                 res.json()
                 alert("Added to Database")
-                form.rest()
+                form.reset()
             })
             .then(info => {
                 console.log(info)

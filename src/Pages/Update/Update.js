@@ -8,48 +8,49 @@ const Update = () => {
     console.log(review);
     const [abc, setAbc] = useState(review)
     console.log(abc);
-    const handleUpdate = (id) => {
+    // const handleUpdate = (id) => {
 
-        // nevigate(`/update/${id}`)
-        fetch(`https://my-photography-server-side.vercel.app/reviews/${id}`, {
+    //     // nevigate(`/update/${id}`)
+
+    // }
+    const handleform = (e) => {
+        e.preventDefault()
+        const form = e.target
+        // const ratings = form.ratings.value
+        const text = form.rev.value
+        let info = {
+            text
+        }
+        fetch(`https://my-photography-server-side-2.vercel.app/reviews/${review._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 // 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(abc)
+            body: JSON.stringify(info)
         }).then(res => res.json())
             .then(data => {
+                // setAbc(data)
+                console.log(data);
                 alert('Updated')
+                form.reset()
 
             })
-        console.log(abc);
-    }
-    const handleform = (e) => {
-        e.preventDefault()
-        const form = e.target
-        const ratings = form.ratings.value
-        const rev = form.rev.value
-        let info = {
-            ratings, rev
-        }
+        // console.log(abc);
         console.log(info);
-        form.reset()
-        setAbc(info)
+
+        // setAbc(info)
 
     }
     return (
         <div>
             <form onSubmit={handleform} className="text-xl text-center font-semibold">
-                <label htmlFor="">Ratings</label>
-                <br />
-                <input type="text" name="ratings" defaultValue={review.ratings} id="" className='text-center mb-5' />
-                <br />
+
                 <label htmlFor="">Review</label>
                 <br />
                 <input type="text" name='rev' className='text-center' defaultValue={review.text} />
                 <br />
-                <Link onClick={() => handleUpdate(review._id)}>
+                <Link>
                     <button className='font-bold text-white rounded p-4 mt-4 bg-purple-700'>Update User</button>
                 </Link>
             </form>

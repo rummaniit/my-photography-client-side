@@ -42,7 +42,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                loader: ({ params }) => fetch(`https://my-photography-server-side.vercel.app/reviews/${params.id}`),
+                loader: ({ params }) => fetch(`https://my-photography-server-side-2.vercel.app/reviews/${params.id}`),
                 element: <Update></Update>
             },
             // {
@@ -61,7 +61,7 @@ const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 loader: ({ params }) => {
-                    return fetch(`https://my-photography-server-side.vercel.app/services/${params.id}`)
+                    return fetch(`https://my-photography-server-side-2.vercel.app/services/${params.id}`)
                 },
                 element: <Servicedetails></Servicedetails>
             }

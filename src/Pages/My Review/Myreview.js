@@ -28,8 +28,8 @@ const Myreview = () => {
     // console.log(bal);
     let handleDelete = (id) => {
         console.log(id);
-        fetch(`https://my-photography-server-side.vercel.app/reviews/${id}`, {
-            method: 'DELETE'
+        fetch(`https://my-photography-server-side-2.vercel.app/reviews/${id}`, {
+            method: 'DELETE',
         })
             .then(res => {
                 res.json()
