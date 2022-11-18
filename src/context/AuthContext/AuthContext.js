@@ -24,7 +24,7 @@ const AuthContext = ({ children }) => {
             .then(res => res.json())
             .then(data => {
                 setServices(data)
-                console.log(data)
+                // console.log(data)
             })
             .catch(e => {
                 console.log(e.message);
