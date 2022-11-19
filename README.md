@@ -13,7 +13,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Database: Mongodb
 # packages==>react-photo-views, react-dynamic-star
 # CRUD operations
-# JWT 
+# sorting data
+# alert ehen add service,registration
 # spinner when data load
 
 In the project directory, you can run:
