@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthServices } from '../../../context/AuthContext/AuthContext';
 import logo from '../../../images/logo.svg'
 
@@ -13,6 +13,14 @@ const Navbar = () => {
     // let activeClassName = "underline";
     let logoSize = {
         width: '120px'
+    }
+    const handleLogout = () => {
+        Logout()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            });
     }
     return (
         <div>
@@ -37,6 +45,10 @@ const Navbar = () => {
                             <li><Link to='/blogs'>Blogs</Link></li>
                             {
                                 currentUser ? <>
+                                    <li className="flex">
+                                        <NavLink rel="noopener noreferrer" onClick={handleLogout} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
+                                        >Log Out</NavLink>
+                                    </li>
                                     <li><Link to='/addservices'>Add Services</Link></li>
                                     <li><Link to='/myreview' >My Reviews</Link></li>
                                 </> : <>
@@ -65,6 +77,10 @@ const Navbar = () => {
                         <li><Link to='/blogs'>Blogs</Link></li>
                         {
                             currentUser ? <>
+                                <li className="flex">
+                                    <NavLink rel="noopener noreferrer" onClick={handleLogout} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
+                                    >Log Out</NavLink>
+                                </li>
                                 <li><Link to='/addservices'>Add Services</Link></li>
                                 <li><Link to='/myreview'>My Reviews</Link></li>
                             </> : <>
