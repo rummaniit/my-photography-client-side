@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { AuthServices } from '../../../context/AuthContext/AuthContext';
 import logo from '../../../images/logo.svg'
 
@@ -46,8 +46,7 @@ const Navbar = () => {
                             {
                                 currentUser ? <>
                                     <li className="flex">
-                                        <NavLink rel="noopener noreferrer" onClick={handleLogout} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
-                                        >Log Out</NavLink>
+                                        <Link onClick={handleLogout}>Log Out</Link>
                                     </li>
                                     <li><Link to='/addservices'>Add Services</Link></li>
                                     <li><Link to='/myreview' >My Reviews</Link></li>
@@ -59,7 +58,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <Link to='/' rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2" >
+                    <Link to='/' aria-label="Back to homepage" className="flex items-center p-2" >
                         <h1 className='text-purple-300 text-3xl font-bold'>My Photography</h1>
                         <img src={logo} style={logoSize} alt="" />
                     </Link>
@@ -78,8 +77,7 @@ const Navbar = () => {
                         {
                             currentUser ? <>
                                 <li className="flex">
-                                    <NavLink rel="noopener noreferrer" onClick={handleLogout} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 "
-                                    >Log Out</NavLink>
+                                    <Link onClick={handleLogout}>Log Out</Link>
                                 </li>
                                 <li><Link to='/addservices'>Add Services</Link></li>
                                 <li><Link to='/myreview'>My Reviews</Link></li>
