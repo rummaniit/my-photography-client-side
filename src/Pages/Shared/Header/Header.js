@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthServices } from '../../../context/AuthContext/AuthContext';
 import logo from '../../../images/logo.svg'
+import Navbar from '../Navbar/Navbar';
 
 const Header = () => {
     const { Logout, currentUser } = useContext(AuthServices)
@@ -130,9 +131,9 @@ const Header = () => {
                     </button>
                 </div>
             </header >
-
         </div >
     );
+
 };
 
 export default Header;
